@@ -19,7 +19,7 @@ class UserController extends Controller
        $user = User::where('phone',$phone)->first();
        if(Hash::check($password,$user->password)){
             Auth::login($user);
-            return redirect()->route('home');
+            return redirect()->route('cats.index');
        }else{
            return redirect()->back()->with('error',"Login Fail");
        }
